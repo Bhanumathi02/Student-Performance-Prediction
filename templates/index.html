@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎓 Student Performance Prediction</h1>
+    <p>Enter student details below</p>
+
+    <form action="/predict" method="POST">
+
+        <input type="number" name="study_hours" placeholder="📚 Study Hours" required>
+
+        <input type="number" name="attendance" placeholder="📅 Attendance (%)" required>
+
+        <input type="number" name="previous_marks" placeholder="📝 Previous Marks" required>
+
+        <button type="submit">Predict Performance</button>
+        <button type="reset" class="reset-btn">Reset</button>
+
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+    {% endif %}
+    <hr style="margin:20px 0;">
+
+<p style="font-size:14px;color:gray;">
+Developed by <b>Somaraju Bhanumathi</b>
+</p>
+
+</div>
+
+</body>
+</html>
